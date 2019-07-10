@@ -1,0 +1,2 @@
+pour pointer intra.42.fr sur l’adresse suivante 46.19.122.85 , on va ajouter a la fin du fichier /etc/hosts la ligne suivante :
+46.19.122.85	intra.42.fr

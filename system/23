@@ -1,0 +1,4 @@
+En tant que ce nouveau utilisateur, je peux se connecter via une session ssh en executant la commande:
+>$ ssh login@X.X.X.x
+
+Comme je peux se connecter via une session Graphique en se deconnectant de la session en cours et en tapant le login et le mdp du nouveau utilisateur

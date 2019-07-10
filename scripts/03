@@ -1,0 +1,64 @@
+#! /bin/bash
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'    
+YELLOW='\033[1;33m'
+LIGHTPURPLE='\033[1;35m'
+CYAN='\033[0;36m'    
+SET='\033[0m'
+
+echo -e "${LIGHTPURPLE}press 1 , 2 , 3${SET}"
+
+read var
+if [ "$var" = 1 ] || [ "$var" = "2" ] || [ "$var" = "3" ]
+then
+if [ "$var" = "1" ]
+	then
+		echo -e "${CYAN}enter the name of the project :${SET}"
+		read name
+		cd ~/Desktop ; mkdir $name; cd $name
+		echo -e "${YELLOW}creating ...${SET}"
+		sleep 1
+		touch $name.h
+		echo -e "#ifndef $(echo $name | tr '[:lower:]' '[:upper:]')_H" > $name.h
+		echo -e "# define $(echo $name | tr '[:lower:]' '[:upper:]')_H" >> $name.h
+		echo -e "\n\n" >> $name.h
+		echo "#endif" >> $name.h
+		touch $name.c
+		echo -e "#include \"$name.h\"" > $name.c
+		touch Makefile
+		echo -e "${GREEN}create done.${SET}"
+fi
+if [ "$var" = "2" ]
+	then
+		echo -e "${CYAN}enter the name of the repo:${SET}"
+		read repo
+		cd ~/Desktop
+		git clone -q $repo clone
+		echo -e "${YELLOW}cloning ...${SET}"
+		sleep 1
+		echo -e "${GREEN}cloning done.${SET}"
+		echo -e "${CYAN}enter the name of the project to push :${SET}"
+		read push
+		cp -r $push clone
+		cd clone
+		echo -e "${YELLOW}pushing ...${SET}"
+		git add .; git commit -q -m 'push from script'; git config credential.username "khaoulazouggar" ;git push -q -u origin master
+		sleep 1
+		echo -e "${GREEN}push done.${SET}"
+fi
+if [ "$var" = "3" ]
+	then
+		echo -e "${CYAN}enter the name of the repo:${SET}"
+		read del
+		cd ~/Desktop
+		git clone -q $del delete; cd delete
+		rm -rf *
+		echo -e "${YELLOW}deleting ...${SET}"
+		sleep 1
+		git add .; git commit -q -m 'push from script'; git config credential.username "khaoulazouggar" ;git push -q -u origin master
+		echo -e "${GREEN}delete done.${SET}"
+fi
+else
+	echo -e"${RED}error check the numbers avilable${SET}"
+fi
