@@ -1,1 +1,1 @@
-idu -sh -d1 /var
+du -h -d1 /var

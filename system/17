@@ -1,1 +1,1 @@
-ssh -X user@ip_adress
+ssh user@ip_adress

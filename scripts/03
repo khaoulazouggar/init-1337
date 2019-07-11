@@ -56,9 +56,9 @@ if [ "$var" = "3" ]
 		rm -rf *
 		echo -e "${YELLOW}deleting ...${SET}"
 		sleep 1
-		git add .; git commit -q -m 'push from script'; git config credential.username "khaoulazouggar" ;git push -q -u origin master
+		git add .; git commit -q -m 'delete from script'; git config credential.username "khaoulazouggar" ;git push -q -u origin master
 		echo -e "${GREEN}delete done.${SET}"
 fi
 else
-	echo -e"${RED}error check the numbers avilable${SET}"
+	echo -e "${RED}error check the numbers avilable${SET}"
 fi
